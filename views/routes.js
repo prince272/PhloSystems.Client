@@ -1,5 +1,5 @@
 import { getPath, matchPath } from '../utils';
-import { CLIENT_URL } from '../client';
+ const CLIENT_URL = typeof window !== 'undefined' ? window.env.CLIENT_URL : process.env.CLIENT_URL;
 
 const routes = [];
 routes.push({ key: 'ChangeAccountDialog', pattern: '/account/change' });
