@@ -1,5 +1,5 @@
 import { NextResponse } from 'next/server';
-// import { findContextualRoute, PAGE_PATH_QUERY_PARAM } from '../views/routes';
+import { findContextualRoute, PAGE_PATH_QUERY_PARAM } from '../views/routes';
 
 function middleware(request) {
 
