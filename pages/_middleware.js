@@ -3,7 +3,7 @@ import { findContextualRoute, PAGE_PATH_QUERY_PARAM } from '../views/routes';
 
 function middleware(request) {
 
-    console.error('1');
+    console.error(request.nextUrl);
 
     if (findContextualRoute(request.nextUrl.toString())) { 
         console.error('2');
