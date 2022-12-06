@@ -10,6 +10,7 @@ import { ClientProvider, ViewProvider, useView } from '../components';
 import { createClient } from '../client';
 import PageProgressBar from 'react-top-loading-bar';
 import { removeEmptyQueryParams } from '../utils';
+import { findContextualRoute } from '../views/routes';
 
 const PageRoute = ({ Component, pageProps, ...appProps }) => {
   const router = useRouter();
@@ -23,6 +24,7 @@ const PageRoute = ({ Component, pageProps, ...appProps }) => {
 
     const handleRouteChangeStart = (url, { shallow }) => {
       pageProgressBar.current.continuousStart();
+
     };
 
     const handleRouteChangeComplete = (url, { shallow }) => {
@@ -45,9 +47,6 @@ const PageRoute = ({ Component, pageProps, ...appProps }) => {
         console.log(`Route to ${url} was cancelled!`)
       }
     };
-
-    const link = constructLink(router.asPath);
-    if (link.as) router.replace(link.href, link.as);
 
     router.events.on('routeChangeStart', handleRouteChangeStart);
     router.events.on('routeChangeComplete', handleRouteChangeComplete);
