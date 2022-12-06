@@ -46,9 +46,9 @@ const SignInDialog = (props) => {
             console.error(error);
 
             if (isHttpError(error)) {
-                const { reason } = error?.response?.data || {};
+                const { action } = error?.response?.data || {};
 
-                if (reason == 'requiresVerification') {
+                if (action == 'requiresVerification') {
 
                     const link = constructLink({ pathname: '/account/verify', query: { returnUrl: router.asPath } }, {
                         state: JSON.stringify({ inputs, provider })
