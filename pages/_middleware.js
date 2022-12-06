@@ -3,10 +3,10 @@ import { NextResponse } from 'next/server';
 
 function middleware(request) {
 
-    // if (findContextualRoute(request.nextUrl.toString())) { 
-    //     const pagePath = request.nextUrl.searchParams.get(PAGE_PATH_QUERY_PARAM) || '/';
-    //     return NextResponse.rewrite(new URL(pagePath, request.nextUrl));
-    // } 
+    if (findContextualRoute(request.nextUrl.toString())) { 
+        const pagePath = request.nextUrl.searchParams.get(PAGE_PATH_QUERY_PARAM) || '/';
+        return NextResponse.rewrite(new URL(pagePath, request.nextUrl));
+    } 
 
     const response = NextResponse.next();
     return response;
