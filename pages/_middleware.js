@@ -4,6 +4,8 @@ import { findContextualRoute, PAGE_PATH_QUERY_PARAM } from '../views/routes';
 function middleware(request) {
 
     console.error(request.nextUrl);
+    console.error(request.nextUrl?.clone());
+    console.error(request.nextUrl?.href);
 
     if (findContextualRoute(request.nextUrl.url.toString())) { 
         console.error('2');
