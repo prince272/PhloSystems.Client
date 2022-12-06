@@ -5,7 +5,7 @@
   "scripts": {
     "dev": "cross-env next dev | local-ssl-proxy --key localhost-key.pem --cert localhost.pem --source 3001 --target 3000",
     "build": "next build",
-    "start": "node server.js",
+    "start": "NODE_ENV=production node server.js",
     "lint": "next lint"
   },
   "dependencies": {
