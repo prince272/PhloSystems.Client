@@ -1,13 +1,12 @@
 import { NextResponse } from 'next/server';
+import { getPath } from '../utils';
 import { findContextualRoute, PAGE_PATH_QUERY_PARAM } from '../views/routes';
 
 function middleware(request) {
 
-    console.error(request.nextUrl);
-    console.error(request.nextUrl?.clone());
-    console.error(request.nextUrl?.href);
+    const middlewarePath = getPath(request.nextUrl?.href);
 
-    if (findContextualRoute(request.nextUrl.url.toString())) { 
+    if (middlewarePath && findContextualRoute(middlewarePath)) { 
         console.error('2');
         const pagePath = request.nextUrl.searchParams.get(PAGE_PATH_QUERY_PARAM) || '/';
         console.error('3');
